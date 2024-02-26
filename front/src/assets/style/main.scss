@@ -1,0 +1,25 @@
+@import "../../components/Account/Account.scss";
+@import "../../components/Banner/Banner.scss";
+@import "../../components/EditButton/EditButton.scss";
+@import "../../components/FeatureItem/FeatureItem.scss";
+@import "../../components/Footer/Footer.scss";
+@import "../../components/Header/Header.scss";
+@import "../../pages/Home/Home.scss";
+@import "../../pages/SignIn/SignIn.scss";
+@import "../../pages/SignUp/SignUp.scss";
+@import "../../pages/User/User.scss";
+
+html {
+	font-family: Avenir, Helvetica, Arial, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-align: center;
+	color: #2c3e50;
+}
+
+body {
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
