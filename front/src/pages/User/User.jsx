@@ -32,7 +32,8 @@ export default function User() {
 
         <main className="main bg-dark">
             <div className="header">
-                <h1>Welcome back<br />{profile.firstName + " " + profile.lastName + "!"}</h1>
+            <h1>Welcome back<br />{profile ? `${profile.firstName} ${profile.lastName}!` : 'Loading...'}</h1>
+
                 <EditButton />
             </div>
             <h2 className="sr-only">Accounts</h2>

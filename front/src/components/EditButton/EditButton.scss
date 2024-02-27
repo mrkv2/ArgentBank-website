@@ -1,0 +1,23 @@
+.edit-button {
+    background-color: green; // Couleur de fond pour les boutons
+    color: white; // Couleur du texte pour assurer un bon contraste
+    border: none; // Optionnel, pour enlever la bordure par défaut des boutons
+    padding: 10px 20px; // Ajuster selon les besoins pour l'espacement intérieur
+    margin: 5px; // Espacement autour des boutons pour éviter qu'ils ne se touchent
+    cursor: pointer; // Change le curseur pour indiquer un élément cliquable
+    transition: background-color 0.3s; // Effet de transition pour le survol
+
+    &:hover {
+        background-color: darken(green, 10%); // Assombrit le bouton au survol pour un feedback visuel
+    }
+
+    &:focus {
+        outline: none; // Enlève l'outline par défaut pour une apparence plus nette lors de la sélection
+        box-shadow: 0 0 0 2px rgba(0, 128, 0, 0.5); // Ajoute un halo pour améliorer l'accessibilité
+    }
+
+    &:disabled {
+        background-color: lighten(green, 10%); // Éclaircit le bouton quand il est désactivé
+        cursor: not-allowed; // Change le curseur pour indiquer un élément non cliquable
+    }
+}
