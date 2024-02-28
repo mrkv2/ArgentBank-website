@@ -1,40 +1,38 @@
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { setGetProfile } from "../../redux/reducers/profileSlice"
-import Account from "../../components/Account/Account"
-import EditButton from "../../components/EditButton/EditButton"
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setGetProfile } from "../../redux/reducers/profileSlice";
+import Account from "../../components/Account/Account";
+import EditButton from "../../components/EditButton/EditButton";
 
 export default function User() {
-    const token = useSelector(state => state.userAuth.token)
-    const profile = useSelector((state) => state.profile)
+    const token = useSelector(state => state.userAuth.token);
+    const profile = useSelector((state) => state.profile);
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     useEffect(() => {
         const fetchDataUser = async () => {
             try {
                 const response = await fetch("http://localhost:3001/api/v1/user/profile", {
-                method: "POST",
+                    method: "POST",
                     headers: {
                         "Authorization": `Bearer ${token}`
                     }
-                })
-                const data = await response.json()
-                dispatch(setGetProfile({ data }))
+                });
+                const data = await response.json();
+                dispatch(setGetProfile({ data }));
             } catch (err) {
-                console.log(err)
+                console.log(err);
             }
-        }
-        fetchDataUser()
-    }, [token])
+        };
+        fetchDataUser();
+    }, [token, dispatch]);
 
     return (
-
         <main className="main bg-dark">
             <div className="header">
-            <h1>Welcome back<br />{profile ? `${profile.firstName} ${profile.lastName}!` : 'Loading...'}</h1>
-
-                <EditButton />
+                <h1>Welcome back<br />{profile ? `${profile.firstName} ${profile.lastName}!` : 'Loading...'}</h1>
+                <EditButton userName={profile.userName} />
             </div>
             <h2 className="sr-only">Accounts</h2>
             <Account
@@ -50,5 +48,5 @@ export default function User() {
                 amount="$184.30"
                 description="Current Balance" />
         </main>
-    )
+    );
 }

@@ -1,33 +1,31 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from '@reduxjs/toolkit';
+
+const initialState = {
+    email: '',
+    firstName: '',
+    lastName: '',
+    userName: '',
+};
 
 const profileSlice = createSlice({
-    name: "profile",
-    initialState: {
-        email: "",
-        firstName: "",
-        lastName: "",
-        userName: "",
-    },
+    name: 'profile',
+    initialState,
     reducers: {
         setGetProfile: (state, action) => {
-            state.email = action.payload.data.body.email;
-            state.firstName = action.payload.data.body.firstName;
-            state.lastName = action.payload.data.body.lastName;
-            state.userName = action.payload.data.body.userName;
+            const { email, firstName, lastName, userName } = action.payload.data;
+            state.email = email;
+            state.firstName = firstName;
+            state.lastName = lastName;
+            state.userName = userName;
         },
         setEditProfile: (state, action) => {
-            state.userName = action.payload
+            state.userName = action.payload.userName;
         },
         resetProfile: () => {
-            return {
-                email: "",
-                firstName: "",
-                lastName: "",
-                userName: "",
-            };
+            return initialState; // Ceci réinitialise l'état du profil à son état initial
         },
     },
-})
+});
 
-export const { setGetProfile, setEditProfile, resetProfile } = profileSlice.actions
-export default profileSlice.reducer
+export const { setGetProfile, setEditProfile, resetProfile } = profileSlice.actions;
+export default profileSlice.reducer;

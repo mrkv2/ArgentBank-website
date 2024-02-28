@@ -18,7 +18,7 @@ export default function SignUp() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const SignUp = async (e) => {
+    const handleSignUp = async (e) => {
         e.preventDefault()
         try {
             const response = await fetch("http://localhost:3001/api/v1/user/signup", {
@@ -45,7 +45,7 @@ export default function SignUp() {
             <section className="sign-in-content">
                 <i className="fa fa-user-circle sign-in-icon"></i>
                 <h1>Sign Up</h1>
-                <form onSubmit={SignUp}>
+                <form onSubmit={handleSignUp}>
                     <TextInput
                         className="input-wrapper"
                         label="E-mail"
