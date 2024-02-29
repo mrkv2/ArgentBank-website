@@ -20,7 +20,7 @@ export default function User() {
                     }
                 });
                 const data = await response.json();
-                dispatch(setGetProfile({ data }));
+                dispatch(setGetProfile({ ...data.body }));
             } catch (err) {
                 console.log(err);
             }
